@@ -1,0 +1,654 @@
+/* ------------------------------------------------------------------- */
+/* --- Consolidated Global Styles & Setup --- */
+/* ------------------------------------------------------------------- */
+:root {
+    --primary-color: #ff6b6b; /* Energetic Red/Orange Accent */
+    --secondary-color: #ffffff; /* FIX: Pure white for maximum contrast */
+    --background-dark: #1e272e; /* Deep Dark Background */
+    --background-light: #2c3a50; /* Slightly lighter dark for contrast */
+    --font-family: 'Montserrat', sans-serif;
+    --card-width: 280px; 
+    --image-height: 280px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--secondary-color);
+    background-color: var(--background-dark);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+h2, h3, h4 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 900;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.my-5 {
+    padding-top: 3rem; 
+    padding-bottom: 3rem;a
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Header & Navigation (Universal) --- */
+/* ------------------------------------------------------------------- */
+.main-header {
+    background: var(--background-light);
+    color: var(--secondary-color);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+}
+
+/* New: Mobile Toggle Button Styling */
+.menu-toggle {
+    display: none; /* Hide by default on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.main-nav ul li a {
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.main-nav ul li a:hover {
+    color: var(--background-dark);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Footer (Universal) --- */
+/* ------------------------------------------------------------------- */
+footer {
+    background: var(--background-dark);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--background-light);
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Home Page Specific Styles (Hero & Programs) --- */
+/* ------------------------------------------------------------------- */
+.hero-section {
+    background: linear-gradient(rgba(30, 39, 46, 0.7), rgba(30, 39, 46, 0.7)), url('https://via.placeholder.com/1920x800/2c3a50/ffffff?text=FITNESS+STUDIO+HERO+IMAGE') no-repeat center center/cover;
+    height: 80vh; 
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--background-dark);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+}
+
+.programs-section {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: var(--background-light);
+}
+
+.programs-section h3 {
+    font-size: 2.5rem;
+}
+
+.section-description {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.program-card {
+    background: var(--background-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary-color);
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.program-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.program-card h4 {
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+.program-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+}
+
+.program-link:hover {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+/* ------------------------------------------------------------------- */
+/* --- Trainer Card Styles --- */
+/* ------------------------------------------------------------------- */
+.card-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.trainer-card {
+    background-color: var(--background-light);
+    width: var(--card-width); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+}
+
+.trainer-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.trainer-card .card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.trainer-card .card-text {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.trainer-card img {
+    width: 100%;
+    height: var(--image-height); 
+    object-fit: cover; 
+}
+
+.btn-trainer-register {
+    display: block; 
+    width: 100%; 
+    padding: 0.75rem 1.5rem;
+    
+    background-color: var(--primary-color);
+    color: var(--background-dark) !important; 
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+.btn-trainer-register:hover {
+    background-color: var(--background-dark);
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color);
+    transform: scale(1.03);
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Weekly Class Timetable (Sliding Scrollable Design) --- */
+/* ------------------------------------------------------------------- */
+.schedule-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-width: 850px;
+  background-color: #1e272e;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar styling */
+.schedule-table::-webkit-scrollbar {
+  height: 8px;
+}
+.schedule-table::-webkit-scrollbar-thumb {
+  background-color: #ff6b6b;
+  border-radius: 10px;
+}
+.schedule-table::-webkit-scrollbar-track {
+  background: #2f3640;
+}
+
+/* Table header */
+.schedule-table th {
+  background-color: #ff6b6b;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 12px;
+  font-size: 0.95rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.schedule-table th:last-child {
+  border-right: none;
+}
+
+/* Table data cells */
+.schedule-table td {
+  background-color: #2f3640;
+  color: #fff;
+  padding: 14px 12px;
+  font-weight: 600;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: normal;
+  line-height: 1.6;
+  vertical-align: top;
+  word-break: break-word;
+  transition: background-color 0.3s ease;
+}
+.schedule-table td:last-child {
+  border-right: none;
+}
+
+/* Alternate row colors */
+.schedule-table tr:nth-child(even) td {
+  background-color: #353b48;
+}
+
+/* Hover highlight */
+.schedule-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Register button styling */
+.schedule-table a.register-btn {
+  display: inline-block;
+  margin-top: 8px;
+  background-color: #ff6b6b;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+.schedule-table a.register-btn:hover {
+  background-color: #ff8787;
+}
+
+/* Info note above table */
+.schedule-note {
+  background-color: #273c75;
+  border-left: 4px solid #ff6b6b;
+  color: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Mobile Responsive (Keep Slide Scroll + Proper Text Wrapping) --- */
+/* ------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Navigation */
+  .menu-toggle { display: block; }
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--background-dark);
+    transform: translateY(-200%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    border-bottom: 3px solid var(--primary-color);
+  }
+  .main-nav.nav-open { transform: translateY(0); }
+  .main-nav ul { flex-direction: column; align-items: center; }
+  .main-nav ul li { width: 100%; text-align: center; }
+  .main-nav ul li a { display: block; padding: 1rem 0; border-bottom: 1px solid var(--background-light); }
+
+  /* Hero */
+  .hero-content h2 { font-size: 2.5rem; }
+  .hero-content p { font-size: 1rem; }
+
+  /* Trainers */
+  .trainer-card { width: 90%; max-width: 350px; }
+
+  /* Schedule Table */
+  .schedule-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .schedule-table {
+    display: block;
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+  }
+  .schedule-table th,
+  .schedule-table td {
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.5;
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    vertical-align: top;
+  }
+  .schedule-table td a {
+    display: inline-block;
+    margin-top: 4px;
+  }
+}
+
+/* ------------------------------------------------------------------- */
+}
+/* --- Registration Form Overrides (Bootstrap) --- */
+/* ------------------------------------------------------------------- */
+.form-control, .form-select {
+    background-color: var(--background-dark) !important;
+    border-color: var(--background-light) !important;
+    color: var(--secondary-color) !important;
+}
+
+.form-label {
+    color: var(--secondary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--background-dark) !important;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff4757 !important;
+    border-color: #ff4757 !important;
+}
+
+.modal-content {
+    background-color: var(--background-light);
+    color: var(--secondary-color);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5); 
+}
+.form-select option {
+    color: var(--background-dark); 
+}
+
+/* ------------------------------------------------------------------- */
+/* --- Media Queries (Responsiveness) --- */
+/* ------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* ---------------- Header/Nav Mobile ---------------- */
+  .main-header .container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+
+  .main-nav {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: var(--background-dark);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 1rem 0;
+      transition: transform 0.3s ease-in-out;
+      transform: translateY(-200%);
+      z-index: 1000;
+      border-bottom: 3px solid var(--primary-color);
+  }
+
+  .main-nav.nav-open { transform: translateY(0); }
+
+  .main-nav ul {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+  }
+
+  .main-nav ul li {
+      width: 100%;
+      text-align: center;
+  }
+
+  .main-nav ul li a {
+      display: block;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--background-light);
+      font-size: 0.9rem;
+  }
+
+  .main-nav ul li:last-child a { border-bottom: none; }
+
+  /* ---------------- Hero ---------------- */
+  .hero-content h2 { font-size: 2.5rem; }
+  .hero-content p { font-size: 1rem; }
+  .programs-section { padding: 3rem 0; }
+
+  /* ---------------- Trainers ---------------- */
+  .trainer-card {
+      width: 90%;
+      max-width: 350px;
+  }
+
+  /* ---------------- Schedule Table (Horizontal Sliding Fix) ---------------- */
+  .schedule-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule-table {
+      display: block;
+      width: 100%;
+      min-width: 850px; /* keep horizontal scroll */
+      border-collapse: collapse;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+      white-space: normal; /* allow text wrapping */
+      word-break: break-word;
+      line-height: 1.5;
+      padding: 10px 8px;
+      font-size: 0.9rem;
+      vertical-align: top;
+  }
+
+  .schedule-table td a {
+      display: inline-block;
+      margin-top: 4px;
+  }
+}
+
+/* ---- Injected fixes ---- */
+.main-header { position: sticky; top: 0; z-index: 2000; }
+
+.main-nav ul li a.active {
+  background-color: var(--primary-color);
+  color: var(--background-dark);
+  border-radius: 5px;
+}
+
+.cta-nav {
+  border: 2px solid var(--primary-color);
+  border-radius: 24px;
+}
+
+/* --- Sticky Header Shadow on Scroll --- */
+.scrolled-header {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* --- Smooth Scroll Behavior --- */
+html { scroll-behavior: smooth; }
+
+/* --- Back to Top Button --- */
+#backToTop {
+  position: fixed;
+  bottom: 60px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.3s ease, visibility 0.4s;
+  z-index: 3000;
+}
+#backToTop:hover {
+  transform: translateY(-3px);
+  background-color: #ff8787;
+}
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Register Button on Schedule Page --- */
+.schedule-table a.register-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.schedule-table a.register-btn:hover { background-color: #ff8787; }
+

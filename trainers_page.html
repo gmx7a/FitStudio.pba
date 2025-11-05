@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitStudio - Our Trainers</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">FitStudio</h1>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="trainers_page.html">Trainers Page</a></li>
+                    <li><a href="schedule_page.html">Schedule Page</a></li>
+                    <li><a href="register.html?trainer=alex" class="cta-nav">Registration Form</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <h2 class="text-center">Meet Our Trainers</h2>
+        <div class="card-holder">
+            
+            <div class="trainer-card"> 
+                <img src="https://www.ufcgym.com.au/uploads/1430/screen-shot-2020-10-28-at-93506-am.png?quality=90&width=900" class="card-img-top" alt="Alex Tan - HIIT Coach">
+                <div class="card-body">
+                    <h5 class="card-title">Alex Tan</h5>
+                    <p class="card-text">HIIT & Strength Coach with 8 years of experience in functional training and endurance.</p>
+                    <a href="register.html?trainer=alex" class="btn-trainer-register">Register Trial</a>
+                </div>
+            </div>
+
+            <div class="trainer-card">
+                <img src="https://news.dasa.ncsu.edu/wp-content/uploads/sites/39/2019/08/Shaily-Article-Photo.png" class="card-img-top" alt="Maya Lee - Yoga Instructor">
+                <div class="card-body">
+                    <h5 class="card-title">Maya Lee</h5>
+                    <p class="card-text">Certified Yoga Instructor focused on flexibility, mindfulness, and breathwork techniques.</p>
+                    <a href="register.html?trainer=maya" class="btn-trainer-register">Register Trial</a>
+                </div>
+            </div>
+
+            <div class="trainer-card">
+                <img src="https://s3.eu-north-1.amazonaws.com/cdn-site.mediaplanet.com/app/uploads/sites/106/2020/08/08004410/MainImage_A1-888x500.jpg" class="card-img-top" alt="Jordan Lim - Zumba Trainer">
+                <div class="card-body">
+                    <h5 class="card-title">Jordan Lim</h5>
+                    <p class="card-text">Zumba Trainer known for high-energy motivators who blend dance, fitness, and fun into every session.</p>
+                    <a href="register.html?trainer=jordan" class="btn-trainer-register">Register Trial</a>
+                </div>
+            </div>
+
+            <div class="trainer-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/mh-trainer-2-1533576998.png?resize=1400:*" class="card-img-top" alt="Nina Kumar - Pilates Specialist">
+                <div class="card-body">
+                    <h5 class="card-title">Charlie Smith</h5>
+                    <p class="card-text">Personal Trainer helping clients improve core strength, posture, and mobility.</p>
+                    <a href="register.html?trainer=charlie" class="btn-trainer-register">Register Trial</a>
+                </div>
+            </div>
+
+            <div class="trainer-card">
+                <img src="https://img.freepik.com/premium-photo/portrait-confident-doctor_13339-89019.jpg" class="card-img-top" alt="Raymond Ong - CrossFit Coach">
+                <div class="card-body">
+                    <h5 class="card-title">Raymond James</h5>
+                    <p class="card-text">Mobility & Rehab Specialist focused on injury prevention and posture alignment.</p>
+                    <a href="register.html?trainer=raymond" class="btn-trainer-register">Register Trial</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FitStudio. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    <script>
+        const menuBtn = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuBtn && mainNav) {
+            menuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('nav-open');
+                const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', String(!expanded));
+            });
+        }
+        document.querySelectorAll('.main-nav ul li a').forEach(item => {
+            item.addEventListener('click', () => {
+                mainNav.classList.remove('nav-open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        (function highlightActive(){
+            const path = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.main-nav a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && href.endsWith(path)) a.classList.add('active');
+            });
+        })();
+    </script>
+        
+<button id="backToTop" title="Go to top">&#8679;</button>
+
+<script>
+// Sticky Header + Back to Top + Smooth Scroll
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.main-header');
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 50) header.classList.add('scrolled-header');
+  else header.classList.remove('scrolled-header');
+  if (window.scrollY > 300) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

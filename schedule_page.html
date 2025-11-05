@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitStudio - Class Schedule</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">FitStudio</h1>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="trainers_page.html">Trainers Page</a></li>
+                    <li><a href="schedule_page.html">Schedule Page</a></li>
+                    <li><a href="register.html" class="cta-nav">Registration Form</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <section class="container my-5">
+        <h2 class="text-center">Weekly Class Timetable</h2>
+        
+        <p class="schedule-note text-center">⚠️ **Note:** Class times and trainers are subject to change. Please check regularly for updates.</p>
+        
+        <div class="schedule-table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time & Duration</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Time & Duration">8:00 AM - 9:00 AM</td>
+                        <td data-label="Monday" class="class-hiit">HIIT (Alex)</td>
+                        <td data-label="Tuesday" class="class-yoga">Yoga (Maya)</td>
+                        <td data-label="Wednesday" class="class-spin">Zumba (Jordan)</td>
+                        <td data-label="Thursday" class="class-hiit">HIIT (Alex)</td>
+                        <td data-label="Friday" class="class-yoga">Yoga (Maya)</td>
+                        <td data-label="Saturday" class="class-strength">Strength (Charlie)</td>
+                        <td data-label="Sunday" class="class-rest">Rest Day</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time & Duration">12:00 PM - 1:00 PM</td>
+                        <td data-label="Monday" class="class-pilates">Strength (Charlie)</td>
+                        <td data-label="Tuesday" class="class-strength">Mobility & Rehab (Raymond)</td>
+                        <td data-label="Wednesday" class="class-hiit">HIIT (Alex)</td>
+                        <td data-label="Thursday" class="class-pilates">Strength (Charlie)</td>
+                        <td data-label="Friday" class="class-strength">Mobility & Rehab (Raymond)</td>
+                        <td data-label="Saturday" class="class-zumba">Zumba (Jordan)</td>
+                        <td data-label="Sunday" class="class-rest">Rest Day</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Time & Duration">6:00 PM - 7.30 PM</td>
+                        <td data-label="Monday" class="class-yoga">Yoga (Maya)</td>
+                        <td data-label="Tuesday" class="class-zumba">Zumba (Jordan)</td>
+                        <td data-label="Wednesday" class="class-strength">Strength (Charlie)</td>
+                        <td data-label="Thursday" class="class-hiit">HIIT (Alex)</td>
+                        <td data-label="Friday" class="class-spin">Zumba (Jordan)</td>
+                        <td data-label="Saturday" class="class-rest">Open Gym (closes 8pm)</td>
+                        <td data-label="Sunday" class="class-rest">Open Gym (closes 6pm)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FitStudio. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    <script>
+        const menuBtn = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuBtn && mainNav) {
+            menuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('nav-open');
+                const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', String(!expanded));
+            });
+        }
+        document.querySelectorAll('.main-nav ul li a').forEach(item => {
+            item.addEventListener('click', () => {
+                mainNav.classList.remove('nav-open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        (function highlightActive(){
+            const path = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.main-nav a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && href.endsWith(path)) a.classList.add('active');
+            });
+        })();
+    </script>
+        
+<button id="backToTop" title="Go to top">&#8679;</button>
+
+<script>
+// Sticky Header + Back to Top + Smooth Scroll
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.main-header');
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 50) header.classList.add('scrolled-header');
+  else header.classList.remove('scrolled-header');
+  if (window.scrollY > 300) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>

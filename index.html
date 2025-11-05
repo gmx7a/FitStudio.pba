@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitStudio - Your Journey Starts Here</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">FitStudio</h1>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="trainers_page.html">Trainers Page</a></li>
+                    <li><a href="schedule_page.html">Schedule Page</a></li>
+                    <li><a href="register.html" class="cta-nav">Registration Form</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Unleash Your Potential</h2>
+                    <p>Welcome to **FitStudio**, the premier destination for achieving your health and fitness goals. We offer a vibrant, supportive environment and expert-led programs designed for *real* results.</p>
+                    <a href="trainers_page.html" class="cta-button">Explore Trainers</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" class="programs-section">
+            <div class="container">
+                <h3>Our Signature Programs</h3>
+                <p class="section-description">Choose the path that excites you. We have a program for every goal and every fitness level.</p>
+                
+                <div class="program-grid">
+                    
+                    <div class="program-card">
+                        <i class="fas fa-person-praying"></i>
+                        <h4>Yoga & Meditation</h4>
+                        <p>Find your balance, increase flexibility, and reduce stress with various yoga styles.</p>
+                        <a href="schedule_page.html" class="program-link">View Details</a> 
+                    </div>
+                    
+                    <div class="program-card">
+                        <i class="fas fa-drum"></i>
+                        <h4>High-Energy Zumba</h4>
+                        <p>Dance your way to fitness! Our Zumba classes are fun, effective, and calorie-blasting.</p>
+                        <a href="schedule_page.html" class="program-link">View Details</a>
+                    </div>
+                    
+                    <div class="program-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h4>Personal Training</h4>
+                        <p>Get a customized plan and 1-on-1 coaching to fast-track your specific fitness goals.</p>
+                        <a href="trainers_page.html" class="program-link">View Details</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FitStudio. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    <script>
+        const menuBtn = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (menuBtn && mainNav) {
+            menuBtn.addEventListener('click', function() {
+                mainNav.classList.toggle('nav-open');
+                const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', String(!expanded));
+            });
+        }
+        // Optional: Close menu when a link is clicked
+        document.querySelectorAll('.main-nav ul li a').forEach(item => {
+            item.addEventListener('click', () => {
+                mainNav.classList.remove('nav-open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+        // Highlight active link
+        (function highlightActive(){
+            const path = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.main-nav a').forEach(a => {
+                const href = a.getAttribute('href');
+                if (href && href.endsWith(path)) a.classList.add('active');
+            });
+        })();
+    </script>
+    
+<button id="backToTop" title="Go to top">&#8679;</button>
+
+<script>
+// Sticky Header + Back to Top + Smooth Scroll
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.main-header');
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 50) header.classList.add('scrolled-header');
+  else header.classList.remove('scrolled-header');
+  if (window.scrollY > 300) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
